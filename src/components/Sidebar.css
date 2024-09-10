@@ -1,0 +1,83 @@
+/* Sidebar styling */
+.sidebar {
+  width: 220px;
+  background-color: #343a40;
+  color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 70px); /* Subtracting header height */
+  position: fixed; /* Make the sidebar fixed */
+  top: 0; /* Align it with the top of the viewport */
+  left: 0; /* Align it with the left of the viewport */
+  z-index: 1000; /* Ensure the sidebar is above other content */
+}
+
+/* Sidebar list styling */
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Sidebar list item styling */
+.sidebar ul li {
+  margin-bottom: 16px; /* Increase spacing between items */
+  position: relative; /* Positioning for the arrow */
+}
+
+/* Sidebar list item link styling */
+.sidebar ul li a {
+  color: rgb(100, 0, 0);
+  text-decoration: none;
+  padding: 12px 15px;
+  display: block;
+  transition: all 0.3s ease;
+  border-radius: 5px;
+  position: relative; /* Required for the arrow positioning */
+}
+
+/* Hover effect */
+.sidebar ul li a:hover {
+  background-color: #ffffe0; /* Light yellow color on hover */
+  padding-left: 25px; /* Add extra padding for arrow */
+}
+
+/* Arrow styling */
+.sidebar ul li::before {
+  content: '→'; /* Unicode arrow */
+  color: #bcfcac; /* Light green color */
+  font-size: 1.2em; /* Arrow size */
+  position: absolute;
+  left: 0; /* Position to the left of the text */
+  top: 50%; /* Center vertically */
+  transform: translateY(-50%); /* Adjust vertical alignment */
+}
+
+/* Dashboard should appear lower and more visible */
+.sidebar ul li:first-child a {
+  margin-top: 10px; /* Extra margin to push dashboard down further */
+}
+
+/* New "Reports" link */
+.sidebar ul li a[href="#reports"] {
+  font-weight: normal; /* Add any extra styling for the new "Reports" item */
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 180px;
+  }
+}
+
+@media (max-width: 576px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .sidebar ul li::before {
+    display: none; /* Hide arrows on very small screens */
+  }
+}

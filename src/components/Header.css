@@ -1,0 +1,84 @@
+/* Header container with gradient, shadow, and padding for space */
+.header {
+    background: linear-gradient(90deg, #2a8500 0%, #33ff00 100%);
+    padding: 20px 20px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 10;
+    transition: all 0.3s ease;
+  }
+  
+  /* Hover effect to make the header stand out on interaction */
+  .header:hover {
+    box-shadow: 0 6px 16px rgb(255, 231, 10);
+  }
+  
+  /* Adding an elegant underline effect for the title */
+  .header h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.2rem; /* Adjust font size if needed */
+    font-weight: 400;
+    margin: 0;
+    padding-bottom: 8px;
+    color: #ffffff; /* White text */
+  }
+  
+  /* Animation to add color shine on hover */
+  .header h1:hover {
+    color: #fff;
+    border-bottom: 4px solid hsl(54, 100%, 62%);
+  }
+  
+  /* Responsive adjustments for small devices */
+  @media (max-width: 768px) {
+    .header h1 {
+      font-size: 2rem;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .header {
+      padding: 15px 20px;
+    }
+  
+    .header h1 {
+      font-size: 1.8rem;
+    }
+  }
+  
+  /* Subtle animation to give the header a floating effect */
+  .header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.1);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+  
+  .header:hover::before {
+    opacity: 1;
+  }
+  
+  /* Adding a slight animation for entrance (fading in) */
+  .header {
+    animation: fadeInHeader 1.2s ease-in-out;
+  }
+  
+  @keyframes fadeInHeader {
+    0% {
+      opacity: 0;
+      transform: translateY(-30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  

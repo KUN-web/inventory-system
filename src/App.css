@@ -1,0 +1,121 @@
+/* Overall layout */
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.app-body {
+  display: flex;
+  flex: 1;
+  margin-top: 70px; 
+}
+
+.header {
+  height: 70px; 
+  background-color: #343a40; 
+  z-index: 999; 
+  position: relative; 
+}
+.header h1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin: 0;
+  padding-bottom: 8px;
+}
+
+.header h1:hover {
+  color: #fff;
+}
+
+/* Sidebar styling */
+.sidebar {
+  width: 220px;
+  background-color: #0c0c0c;
+  color: rgb(255, 255, 255);
+  padding: 20px;
+  padding-top: 90px; /* Adjust top padding to push items below the header */
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 70px); /* Subtracting header height */
+  position: fixed; /* Make the sidebar fixed */
+  top: 0; /* Align it with the top of the viewport */
+  left: 0; /* Align it with the left of the viewport */
+  z-index: 1000; /* Ensure the sidebar is above other content */
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar ul li {
+  margin-bottom: 8px; /* Reduced spacing */
+}
+
+.sidebar ul li a {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  padding: 12px 15px;
+  display: block;
+  transition: all 0.3s ease;
+  border-radius: 5px;
+  position: relative;
+}
+
+.sidebar ul li a:hover {
+  background-color: #88f000;
+  padding-left: 18px;
+}
+
+.sidebar ul li a::before {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 4px;
+  background-color: transparent;
+  left: 0;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar ul li a:hover::before {
+  background-color: #50fc00;
+}
+
+.sidebar ul li:first-child a {
+  margin-top: 10px; 
+}
+
+/* MAIN CONTENT AREA */
+.main-content {
+  padding: 20px;
+  background-color: #f8f9fa;
+  flex-grow: 1;
+  min-height: calc(100vh - 70px); 
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 180px;
+  }
+
+  .header h1 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+
+  .main-content {
+    padding: 10px;
+  }
+}
